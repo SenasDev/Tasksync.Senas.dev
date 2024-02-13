@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Start Page</title>
+    <!-- estilos bootsrtap para iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- estilos propios -->
+    <!-- estilos fullcalendar -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.css' rel='stylesheet' />
+    
+    <link rel="stylesheet" href="styles/mainstyles.css">
+
+
+</head>
+
+<body>
+    <header class="nav">
+        <div class="leftnav">
+            <button class="username">username</span>
+        </div>
+        <div class="navbuttoncenter">
+            <button class="buttonprimary">Agenda</button>
+            <button class="buttonprimary">Proyectos</button>
+        </div>
+        <div class="rightnav">
+            <button class="buttonadd">+</button>
+            <button id="dark-mode-toggle"><i class="bi bi-moon-fill"></i></button>
+        </div>
+    </header>
+
+    <div id="contenedorcalendario" style="height: 700px;">
+        <div id="calendario"></div>
+      </div>
+    </main>
+    <!-- scripts propios -->
+    <script src="js/scriptsdiary.js"></script>
+    <script src="js/scriptsnightmode.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/locales/es.js'></script>
+
+</body>
+
+</html>

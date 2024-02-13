@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    /* Definición de variables de colores para el modo claro */
+    --background-color: rgb(237, 252, 255); /* Color de fondo  */
+    --text-color: #191c1b; /* Color de texto  */
+    --nav-color: rgb(230, 242, 245); /* Color de la barra de navegación  */
+    --agenda-color: rgb(227, 242, 245); /* Color de agenda */
+    --button-color: #005d51; /* Color de los botones */
+    --button-text-color: #edfcff;/* Color de texto de los botones */
+    --button-hover-color: #008675; /* Color de los botones:hover */
+    --day-agenda-color: rgb(227, 242, 245);
+
+}
+  
+  /* Definición de variables de colores para el modo oscuro */
+  [data-theme="dark"] {
+    --background-color: #1e201f; 
+    --text-color: #edfcff; 
+    --nav-color: rgb(45, 49, 48); 
+    --agenda-color: #2d3130;
+    --button-color: #005045;
+    --button-hover-color: #008675;
+    --button-text-color: #edfcff;
+    --day-agenda-color: #373b3a;
+
+  }
+/* Estilos body y main*/
+body, main {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Estilos Barra Navegación */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 2px 4px -2px rgba(0,0,0,0.2);
+    height: 64px;
+    background-color: var(--nav-color); 
+    padding: 0 24px;
+}
+
+/* Titles and text elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color); 
+}
+
+/* Styling for buttons and inputs */
+#calendario button,button,.nav button, .nav .username {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--button-color);
+    border: none;
+    color: var(--button-text-color); 
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 3px 0 rgba(0,0,0,0.1);
+    border-radius: 16px;
+    margin-left: 8px;
+    text-align: center;
+}
+
+/* Hover and focus states */
+ button:hover {
+    background-color: var(--button-hover-color); 
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2), 0 4px 2px -3px rgba(0,0,0,0.25), 0 2px 5px 0 rgba(0,0,0,0.2);
+}
+
+/* Active state for buttons */
+button.active, .nav .username:focus {
+    background-color: var(--button-background-color);    color: var(--text-color);}
+
+/* Spacing and alignment */
+.nav > *:not(:last-child) {
+    margin-right: 16px;
+}
+#calendario {
+    background-color: var(--agenda-color); 
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    margin: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); 
+    border-radius: 16px;
+    box-sizing: border-box; /* Incluye padding y border en el width y height */
+}
+
+/* Calendario  */
+
+
+.fc-day-header {
+    text-transform: capitalize; /* Asegura que la primera letra sea mayúscula */
+    font-size: 16px; /* Ajusta al tamaño de fuente deseado */
+}
+
+/* Para los nombres de los meses */
+.fc-left h2 {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize; /* Asegura que la primera letra sea mayúscula */
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); 
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.fc-toolbar.fc-header-toolbar{
+    padding: 16px;
+    box-sizing: border-box; /* Incluye padding y border en el width y height */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.204) ;
+    border-bottom-style: dashed;
+
+}
+
+
+
+
+
+
+
+/* Responsive  */
+@media (max-width: 600px) {
+    
+
+    .fc-toolbar h2 ,.fc-toolbar.fc-header-toolbar,#calendario button,.nav button, .nav .username {
+        padding: 0 4px; 
+        font-size: smaller;
+    }
+    #calendario button{
+        height: min-content;
+    }
+
+    .fc-toolbar h2 {
+        font-size: smaller!important;
+        margin: 0;
+        
+    }
+    .fc-table {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+      .fc-header {
+        display: flex;
+        flex-direction: column;
+      }
+    
+}
+
