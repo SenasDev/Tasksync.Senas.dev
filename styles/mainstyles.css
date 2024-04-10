@@ -2,27 +2,42 @@
 
 :root {
     /* Definición de variables de colores para el modo claro */
-    --background-color: rgb(237, 252, 255); /* Color de fondo  */
-    --text-color: #191c1b; /* Color de texto  */
-    --nav-color: rgb(230, 242, 245); /* Color de la barra de navegación  */
-    --agenda-color: rgb(227, 242, 245); /* Color de agenda */
-    --button-color: #005d51; /* Color de los botones */
+    --background-color: #F6FAFE; /* Color de fondo  */
+    --text-color: #0A164B; /* Color de texto  */
+    --nav-color: #d5e3ff43; /* Color de la barra de navegación  */
+    --agenda-color:#F6FAFE; /* Color de agenda */
+    --button-color: #3478CC; /* Color de los botones */
     --button-text-color: #edfcff;/* Color de texto de los botones */
-    --button-hover-color: #008675; /* Color de los botones:hover */
-    --day-agenda-color: rgb(227, 242, 245);
+    --button-hover-color: #5392E8; /* Color de los botones:hover */
+    --day-agenda-color: #e3f2f5;
+    
+    --elevation-color:#3f4e9583;
+    --fc-today-color:#0b6b591a;
+    --button-background-color-active:#0031C5;
+    --text-color-active: #edfcff;
+    --fc-nobusines:#bbcbe3b3;
+
+
 
 }
   
   /* Definición de variables de colores para el modo oscuro */
   [data-theme="dark"] {
-    --background-color: #1e201f; 
+    --background-color: #1B1B21; 
     --text-color: #edfcff; 
-    --nav-color: rgb(45, 49, 48); 
-    --agenda-color: #2d3130;
-    --button-color: #005045;
-    --button-hover-color: #008675;
+    --nav-color: #1F1F25;
+    --agenda-color: #1F1F25;
+    --button-color: #045EB1;
+    --button-hover-color: #3478CC;
     --button-text-color: #edfcff;
     --day-agenda-color: #373b3a;
+    
+    --elevation-color:#3a457f8b;
+    --fc-today-color:#07483c3b;
+    --button-background-color-active:#0029A9;
+    --fc-nobusines:#06041b94;
+
+
 
   }
 /* Estilos body y main*/
@@ -39,10 +54,12 @@ body, main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2), 0 2px 4px -2px rgba(0,0,0,0.2);
-    height: 64px;
+    box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px rgba(0,0,0,0.1);
     background-color: var(--nav-color); 
-    padding: 0 24px;
+    padding: 50px 36px 50px 36px;
+}
+#contenedorcalendario{
+    padding-top: 36px;
 }
 
 /* Titles and text elements */
@@ -64,21 +81,24 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 16px;
     text-transform: uppercase;
     transition: box-shadow 0.3s ease;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 3px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px var(--elevation-color);
     border-radius: 16px;
     margin-left: 8px;
     text-align: center;
 }
 
 /* Hover and focus states */
- button:hover {
+ .buttonprimary:hover,#calendario button:hover,button:hover {
     background-color: var(--button-hover-color); 
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2), 0 4px 2px -3px rgba(0,0,0,0.25), 0 2px 5px 0 rgba(0,0,0,0.2);
 }
 
 /* Active state for buttons */
-button.active, .nav .username:focus {
-    background-color: var(--button-background-color);    color: var(--text-color);}
+button:focus,#calendario button:focus {
+    background-color: var(--button-background-color-active);    
+    box-shadow: 0 8px 8px 0px var(--elevation-color), 0 8px 6px 0px var(--elevation-color);
+
+}
 
 /* Spacing and alignment */
 .nav > *:not(:last-child) {
@@ -91,7 +111,7 @@ button.active, .nav .username:focus {
     flex-direction: column;
     padding: 16px;
     margin: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); 
+    box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px rgba(0,0,0,0.1); 
     border-radius: 16px;
     box-sizing: border-box; /* Incluye padding y border en el width y height */
 }
@@ -121,11 +141,21 @@ button.active, .nav .username:focus {
     border-bottom-style: dashed;
 
 }
+.fc-nonbusiness {
+    background-color: var(--fc-nobusines);
 
+}
 
+.fc-unthemed td.fc-today {
+    background-color: var(--fc-today-color);
+    border-top:4px solid var(--button-hover-color);
+    border-right:4px solid var(--button-hover-color);
 
-
-
+    
+}
+.fc-ltr .fc-time-grid .fc-event-container {
+    margin: 0 10px 0 10px !important;
+}
 
 
 /* Responsive  */
@@ -155,4 +185,6 @@ button.active, .nav .username:focus {
       }
     
 }
-
+.fc-event-container {
+    margin: 0px;
+}
