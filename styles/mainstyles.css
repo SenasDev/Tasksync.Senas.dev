@@ -2,51 +2,128 @@
 
 :root {
     /* Definición de variables de colores para el modo claro */
-    --background-color: #F6FAFE; /* Color de fondo  */
-    --text-color: #0A164B; /* Color de texto  */
-    --nav-color: #d5e3ff43; /* Color de la barra de navegación  */
-    --agenda-color:#F6FAFE; /* Color de agenda */
-    --button-color: #3478CC; /* Color de los botones */
-    --button-text-color: #edfcff;/* Color de texto de los botones */
-    --button-hover-color: #5392E8; /* Color de los botones:hover */
-    --day-agenda-color: #e3f2f5;
-    
-    --elevation-color:#3f4e9583;
-    --fc-today-color:#0b6b591a;
-    --button-background-color-active:#0031C5;
-    --text-color-active: #edfcff;
-    --fc-nobusines:#bbcbe3b3;
+    --background-color: #bce3ff;
+    /* Fondo más claro con azul suave */
+    --input-color: #bce3ff2b;
+    /* Fondo más claro con azul suave */
+    --text-color: #0D47A1;
+    /* Texto azul oscuro para alto contraste */
+    --text-colorok: #6cb485;
+    --nav-color: #FFFFFF;
+    /* Barra de navegación blanca */
+    --agenda-color: #FFFFFF;
+    /* Fondo de agenda blanco */
 
+    /* Colores de los botones al estilo Material Design 3 */
+    --button-color: #2196F3;
+    /* Azul principal para botones */
+    --button-color-secondary: #1976D2;
+    /* Azul secundario para botones */
+    --button-color-night: #051c3d;
+    /* Azul noche */
+    --button-color-exit: #08054a;
+    /* Azul salida */
+    --button-color-plus: #5ee8cf;
+    /* Azul claro para botones de agregar */
+    --button-text-color: #FFFFFF;
+    /* Texto blanco para todos los botones */
+    --button-color-secondary-variant: #5eacf9;
+    /* Variante secundaria para botones */
+
+    --button-hover-color: #1E88E5;
+    /* Color para hover en botones */
+    --elevation-color: #00000029;
+    /* Sombra ligera */
+    --fc-today-color: #e6f7ff;
+    /* Azul claro para el día actual */
+    --today-border-color: #91dcff;
+    --fc-nobusiness: #f3faff;
+    /* Azul suave para días no laborables */
+    --border-color: #B0BEC5;
+    /* Bordes suaves */
+    --border-color-input: #42A5F5;
+    /* Bordes para inputs */
+
+    --event-work: #6a6ed9;
+    --event-sport: #68bea0;
+    --event-leisure: #f3759f;
+    --event-other: #FFD54F;
+
+    --logo: url('../img/TaskSync2.png');
 
 
 }
-  
-  /* Definición de variables de colores para el modo oscuro */
-  [data-theme="dark"] {
-    --background-color: #1B1B21; 
-    --text-color: #edfcff; 
-    --nav-color: #1F1F25;
-    --agenda-color: #1F1F25;
-    --button-color: #045EB1;
-    --button-hover-color: #3478CC;
-    --button-text-color: #edfcff;
-    --day-agenda-color: #373b3a;
-    
-    --elevation-color:#3a457f8b;
-    --fc-today-color:#07483c3b;
-    --button-background-color-active:#0029A9;
-    --fc-nobusines:#06041b94;
 
+/* Definición de variables de colores para el modo oscuro */
+[data-theme="dark"] {
+    /* Colores para el modo oscuro */
 
+    --background-color: #121212;
+    /* Fondo oscuro para modo oscuro */
+    --input-color: #12121261;
+    --text-color: #B0BEC5;
+    /* Texto claro para modo oscuro */
+    --nav-color: #09141b;
+    /* Barra de navegación oscura */
+    --agenda-color: #0d1c25;
+    /* Fondo de agenda oscuro */
 
-  }
+    --button-color: #095fe4;
+    /* Azul claro para botones */
+    --button-color-secondary: #152229;
+    /* Azul medio para botones secundarios */
+    --button-color-night: #1657b7;
+    /* Azul muy oscuro */
+    --button-color-exit: #0e2181;
+    /* Azul oscuro para salida */
+    --button-color-plus: #3ea492;
+    /* Azul muy claro */
+    --button-text-color: #E3F2FD;
+    /* Texto para botones en modo oscuro */
+    --button-color-secondary-variant: #3ea492;
+    /* Variante secundaria clara */
+
+    --day-agenda-color: #263238;
+    /* Fondo oscuro para agenda diaria */
+    --elevation-color: #455A64;
+    /* Sombra más marcada */
+    --fc-today-color: #143550;
+    /* Azul para el día actual en modo oscuro */
+    --today-border-color: #025ba2;
+    --fc-nobusiness: #142027;
+    /* Azul profundo para días no laborables */
+    --border-color: #78909C;
+    /* Bordes en modo oscuro */
+
+    --event-work: #4d5094;
+    --event-sport: #539980;
+    --event-leisure: #c35176;
+    --event-other: #b59636;
+
+    --logo: url('../img/TaskSync2DarkMode.png');
+}
+
 /* Estilos body y main*/
-body, main {
+body,
+.main {
+    display: flex;
+    flex-direction: column;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+.calendarContainer {
+    flex: 1;
+    /* Esto hace que el contenedor crezca y llene el espacio restante */
+    display: flex;
+    flex-direction: column;
+
+
 }
 
 /* Estilos Barra Navegación */
@@ -54,26 +131,51 @@ body, main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px rgba(0,0,0,0.1);
-    background-color: var(--nav-color); 
-    padding: 50px 36px 50px 36px;
-}
-#contenedorcalendario{
-    padding-top: 36px;
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
+    background-color: var(--nav-color);
+    padding: 16px 38px 16px 32px;
+    border-radius: 0px 0px 16px 16px;
+    margin: 0 24px;
 }
 
+/* Spacing and alignment for elements inside .nav (optional) */
+
+.logo {
+    height: 112px;
+    width: 112px;
+    z-index: 1001;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--logo);
+}
+
+.lefttnav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+
 /* Titles and text elements */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Roboto', sans-serif;
-    color: var(--text-color); 
+    color: var(--text-color);
 }
 
 /* Styling for buttons and inputs */
-#calendario button,button,.nav button, .nav .username {
+#calendario button,
+button {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--button-color);
     border: none;
-    color: var(--button-text-color); 
+    background-color: var(--button-color);
+    color: var(--button-text-color);
     cursor: pointer;
     font-size: 14px;
     font-weight: 700;
@@ -82,109 +184,213 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     transition: box-shadow 0.3s ease;
     box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px var(--elevation-color);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
-    margin-left: 8px;
+    margin-right: 16px;
     text-align: center;
 }
 
-/* Hover and focus states */
- .buttonprimary:hover,#calendario button:hover,button:hover {
-    background-color: var(--button-hover-color); 
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2), 0 4px 2px -3px rgba(0,0,0,0.25), 0 2px 5px 0 rgba(0,0,0,0.2);
+.buttonsecondary,
+.fc-dayGridMonth-button,
+.fc-timeGridWeek-button,
+.fc-timeGridDay-button {
+    background-color: var(--button-color-secondary) !important;
+
+}
+
+.fc-prev-button,
+.fc-next-button {
+    background-color: var(--button-color-secondary-variant) !important;
+
+}
+
+.buttonadd {
+    height: 64px;
+    width: 64px;
+    background-color: var(--button-color-plus);
+}
+
+.buttonnight {
+    background-color: var(--button-color-night);
+}
+
+.buttonexit {
+    background-color: var(--button-color-exit);
+}
+
+button:hover {
+    filter: brightness(115%);
+    /* Aclara el color al hacer hover */
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
+}
+
+#agenda button {
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
 }
 
 /* Active state for buttons */
-button:focus,#calendario button:focus {
-    background-color: var(--button-background-color-active);    
-    box-shadow: 0 8px 8px 0px var(--elevation-color), 0 8px 6px 0px var(--elevation-color);
+button:active {
+    filter: contrast(190%);
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
+}
+
+.fc-dayGridMonth-button:focus,
+.fc-timeGridWeek-button:focus,
+.fc-timeGridDay-button:focus {
+    filter: contrast(160%);
 
 }
 
-/* Spacing and alignment */
-.nav > *:not(:last-child) {
-    margin-right: 16px;
-}
 #calendario {
-    background-color: var(--agenda-color); 
+    background-color: var(--agenda-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
     padding: 16px;
     margin: 24px;
-    box-shadow: 0 4px 6px -1px var(--elevation-color), 0 2px 4px -2px rgba(0,0,0,0.1); 
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
     border-radius: 16px;
-    box-sizing: border-box; /* Incluye padding y border en el width y height */
+    box-sizing: border-box;
+    /* Incluye padding y border en el width y height */
 }
 
 /* Calendario  */
-
+.fc-view-container {
+    border-radius: 16px;
+}
 
 .fc-day-header {
-    text-transform: capitalize; /* Asegura que la primera letra sea mayúscula */
-    font-size: 16px; /* Ajusta al tamaño de fuente deseado */
+    text-transform: capitalize;
+    /* Asegura que la primera letra sea mayúscula */
+    font-size: 16px;
+    /* Ajusta al tamaño de fuente deseado */
 }
 
 /* Para los nombres de los meses */
 .fc-left h2 {
+
     display: flex;
+    border: 1px solid var(--border-color);
     align-items: center;
-    text-transform: capitalize; /* Asegura que la primera letra sea mayúscula */
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); 
+    text-transform: capitalize;
+    /* Asegura que la primera letra sea mayúscula */
+    box-shadow: 0 8px 6px -1px var(--elevation-color), 0 1px 2px -1px var(--elevation-color);
     padding: 16px;
     border-radius: 16px;
 }
 
-.fc-toolbar.fc-header-toolbar{
+.fc-toolbar.fc-header-toolbar {
     padding: 16px;
-    box-sizing: border-box; /* Incluye padding y border en el width y height */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.204) ;
-    border-bottom-style: dashed;
+    box-sizing: border-box;
+    /* Incluye padding y border en el width y height */
+    border-radius: 16px;
 
 }
-.fc-nonbusiness {
-    background-color: var(--fc-nobusines);
+
+.fc-sat,
+.fc-sun {
+    background-color: var(--fc-nobusiness);
 
 }
 
 .fc-unthemed td.fc-today {
     background-color: var(--fc-today-color);
-    border-top:4px solid var(--button-hover-color);
-    border-right:4px solid var(--button-hover-color);
+    border-top: 4px solid var(--today-border-color);
+    border-right: 4px solid var(--today-border-color);
 
-    
+
 }
+
 .fc-ltr .fc-time-grid .fc-event-container {
     margin: 0 10px 0 10px !important;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 0px 24px;
+    font-size: 12px;
+}
+
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+
+    text-decoration: underline;
+}
+
+
+
 
 /* Responsive  */
 @media (max-width: 600px) {
-    
 
-    .fc-toolbar h2 ,.fc-toolbar.fc-header-toolbar,#calendario button,.nav button, .nav .username {
-        padding: 0 4px; 
-        font-size: smaller;
+    #calendario button,
+    button {
+        font-size: 12px;
+        line-height: 24px;
+        padding: 0 8px;
+        border-radius: 8px;
+        margin-right: 8px;
     }
-    #calendario button{
+
+    
+    .logo {
+        height: 80px;
+        width: 80px;
+        
+    }
+    
+    .nav {
+        padding: 8px 18px 8px 16px;
+        border-radius: 0px 0px 16px 16px;
+        margin: 0 24px;
+    }
+    
+    .fc-toolbar h2,
+    .fc-toolbar.fc-header-toolbar,
+    #calendario button,
+    .nav button,
+    .nav .username {
+        font-size: 10px;
+        padding: 8px;
+    }
+    
+    #buttonPlus {
+        display: flex;
+        height: auto;
+        width: auto;
+        padding: 8px 16px 8px 16px;
+    }
+    #calendario button {
         height: min-content;
     }
 
     .fc-toolbar h2 {
-        font-size: smaller!important;
+        font-size: 10px;
         margin: 0;
-        
+        padding: 14px;
+
     }
+
     .fc-table {
         font-size: 0.8rem;
         padding: 10px;
-      }
-      .fc-header {
+    }
+
+    .fc-header {
         display: flex;
         flex-direction: column;
-      }
-    
-}
-.fc-event-container {
-    margin: 0px;
+    }
+
+    .fc-event-container {
+        margin: 0px;
+    }
 }

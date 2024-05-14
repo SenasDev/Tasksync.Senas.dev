@@ -66,37 +66,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </header>
 
 <body>
-    <div class="modal" id="loginregister">
-        <!-- Contenido del modal -->
-        <div class="modal-content">
-            <!-- Contenido del formulario -->
-            <h2>Iniciar Sesión</h2>
-            <!-- Formulario de inicio de sesión -->
-            <form method="post" action="login.php">
-                <!-- Campos del formulario -->
-                <div class="form-group">
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label><br>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                </div>
-                <h3 class="message"><?php echo $message; ?></h3>
+    <div class="modalpoliticaprivacidad" id="politica-privacidad-modal">
+        <div class="modal-content" id="privacyPolicy">
+            <h1>Política de Privacidad</h1>
+            <h2>Información que recopilamos</h2>
+            <p>En TaskSync, recopilamos información personal y no personal que nos proporcionas directamente cuando
+                utilizas nuestros servicios. Esto puede incluir datos que nos ofreces al crear una cuenta, compartir
+                información de contacto, o usar nuestras funcionalidades.</p>
 
-            </form>
+            <h2>Uso de la información</h2>
+            <p>Utilizamos la información recopilada para proporcionar, mantener y mejorar nuestros servicios, así como
+                para desarrollar nuevos servicios y ofrecer protección a TaskSync y nuestros usuarios.</p>
+
+            <h2>Compartiendo tu información</h2>
+            <p>No vendemos tu información personal a terceros. Podemos compartir información con nuestros socios de
+                confianza para permitir la creación de funcionalidades mejoradas, análisis estadísticos y otros
+                servicios similares.</p>
+
+            <h2>Tus derechos y opciones</h2>
+            <p>Tienes derecho a acceder, corregir o eliminar tus datos personales que tenemos. Además, puedes oponerte
+                al procesamiento de tus datos personales, solicitar la limitación del procesamiento y solicitar la
+                portabilidad de tus datos.</p>
+
+            <h2>Cambios a esta política</h2>
+            <p>Podemos actualizar nuestra política de privacidad ocasionalmente. Te notificaremos sobre cualquier cambio
+                publicando la nueva política de privacidad en esta página.</p>
+
+            <h2>Contacto</h2>
+            <p>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos usando la información
+                proporcionada en nuestro sitio web.</p>
         </div>
     </div>
+    
     <footer class="footer">
         <div class="footer-content">
             <p>© 2024 TaskSync - Todos los derechos reservados</p>
             <ul class="footer-links">
                 <li><a href="privacypolicy.php">Política de Privacidad</a></li>
                 <li><a href="faq.php">FAQ</a></li>
-                <li><a href="contact.php">FAQ</a></li>
             </ul>
         </div>
     </footer>
