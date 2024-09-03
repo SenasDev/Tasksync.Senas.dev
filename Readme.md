@@ -1,32 +1,32 @@
-# 📅 TaskSync
+# 📅 TaskSync 
 
 Bienvenido a **TaskSync**, una aplicación diseñada para ayudarte a organizar tus eventos y actividades diarias de manera eficiente. Con un enfoque simple y funcional, esta app te permite gestionar tus eventos de ocio, deporte, trabajo, y más. Además, puedes disfrutar de vistas semanales, mensuales y un modo noche para una experiencia más cómoda.
 - ![main](img/principal.png)
+
 ## 🚀 Funcionalidades
 
 ### 1. Registro y Login
-- **Descripción:** Los usuarios pueden registrarse y acceder a la aplicación de manera segura.
+- Los usuarios pueden registrarse y acceder a la aplicación de manera segura.
 - ![Registro/Login](img/registro_login.png)
 
 ### 2. Registro y Modificación de Eventos
-- **Descripción:** Crea, edita y organiza eventos en diferentes categorías como ocio, deporte, trabajo y otros.
+- Crea, edita y organiza eventos en diferentes categorías como ocio, deporte, trabajo y otros.
 - ![Registro de Eventos](img/registro_eventos.png)
 
 ### 3. Vista Semanal
-- **Descripción:** Visualiza tus eventos organizados por semana para una planificación más precisa.
+-  Visualiza tus eventos organizados por semana para una planificación más precisa.
 - ![Vista Semanal](img/vista_semanal.png)
 
 ### 4. Vista Mensual
-- **Descripción:** Navega a través de tus eventos en una vista mensual, ideal para tener una visión general.
+- Navega a través de tus eventos en una vista mensual, ideal para tener una visión general.
 - ![Vista Mensual](img/vista_mensual.png)
 
 ### 5. Modo Noche/Día
-- **Descripción:** Cambia entre modo noche y día para adaptar la visualización según la hora del día.
-- ![Modo Noche/Día](img/modo_noche_dia.png)
+- Cambia entre modo noche y día para adaptar la visualización según la hora del día.
+- ![Modo Noche/Día](img/modo_noche.png)
 
 ### 6. Edición de Usuario y Contraseña
-- **Descripción:** Los usuarios pueden editar su perfil y cambiar su contraseña cuando lo deseen.
-- ![Edición de Usuario](img/edicion_usuario.png)
+- Los usuarios pueden editar su perfil y cambiar su contraseña cuando lo deseen.
 
 ## 🛠️ Tecnologías Utilizadas
 
