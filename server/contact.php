@@ -26,11 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../index.php");
             exit();
         } else {
-            $message = "Contraseña incorrecta."; // Almacenar mensaje de error
+            $message = "Contraseña incorrecta."; 
         }
     } else {
-        $message = "Usuario no encontrado."; // Almacenar mensaje de error
+        $message = "Usuario no encontrado.";
     }
+  
     mysqli_close($link);
   }
 ?>
@@ -39,12 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../styles/mainstyles.css">
         <link rel="stylesheet" href="../styles/modalstyles.css">
-        <title>Iniciar Sesión</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <title>Contacto</title>
     </head>
-    
+
     <body>
         <header class="nav">
             <a href="../index.php">
@@ -52,39 +53,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </a>
             <div class="rightnav">
                 <?php
-        
-        if (isset($_SESSION['user_name'])) {
-            echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
-            echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
-        } else {
-            echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
-            echo "<a href='register.php'><button>Registrarse</button></a>";
-        }
-        ?>
+                if (isset($_SESSION['user_name'])) {
+                    echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
+                    echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
+                } else {
+                    echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
+                    echo "<a href='register.php'><button>Registrarse</button></a>";
+                }
+                ?>
                 <button id="dark-mode-toggle" class="buttonnight"><i class="bi bi-moon-fill"></i></button>
             </div>
         </header>
         <main>
-            <!-- Modal Inicio de sesión -->
-            <div class="modal" id="loginregister">
+            <!-- Formulario d contacto  -->
+            <div class="modal" id="contactModal">
                 <div class="modal-content">
-                    <h2>Iniciar Sesión</h2>
-                    <form method="post" action="login.php">
+                    <h2>Contacto</h2>
+                    <form action="https://formspree.io/f/xwkgzzdy" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre:</label><br>
+                            <input type="text" id="name" name="name" required>
+                        </div>
                         <div class="form-group">
                             <label for="email">Email:</label><br>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Contraseña:</label><br>
-                            <input type="password" id="password" name="password" required>
+                            <label for="message">Mensaje:</label><br>
+                            <textarea id="message" name="message" rows="4" required></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
                         </div>
-                        <h3 class="message"><?php echo $message; ?></h3>
                     </form>
-                </div>
             </div>
+        </div>
         </main>
         <footer class="footer">
             <div class="footer-content">
@@ -95,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             </div>
         </footer>
-
         <script src="../js/scriptsnightmode.js"></script>
     </body>
 

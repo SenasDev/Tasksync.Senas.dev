@@ -8,7 +8,7 @@ $response = ['success' => false, 'message' => 'No se pudo ejecutar la operación
 if (isset($_SESSION['user_id'])) {
     $userId = $_SESSION['user_id'];
     $taskId = $_POST["taskId"] ?? null;
-    $action = $_POST['action'] ?? 'update';  // Valor predeterminado a 'update' si no se especifica
+    $action = $_POST['action'] ?? 'update';
    
 
     if ($action == 'delete') {
@@ -24,8 +24,8 @@ if (isset($_SESSION['user_id'])) {
         } else {
             $response['message'] = 'Error al eliminar evento';
         }
-    } elseif ($taskId) {
         // Actualización
+    } elseif ($taskId) {
         $label = $_POST["label"];
         $title = $_POST["title"];
         $description = $_POST["description"];

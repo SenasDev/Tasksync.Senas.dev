@@ -4,16 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (addForm) {
         addForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            handleFormSubmit(this); // 'this' apunta al formulario de adición
+            handleFormSubmit(this);
         });
     }
-
     // Manejador para el formulario de edición
     var editForm = document.getElementById('editEventForm');
     if (editForm) {
         editForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // 'this' apunta al formulario de edición y 'e.submitter' al botón que envió el formulario
             handleFormSubmit(this, e.submitter);
         });
     }
@@ -25,8 +23,6 @@ function handleFormSubmit(form, submitter) {
         formData.set('action', submitter.value);
     }
     var actionUrl = form.getAttribute('action') || '/tasksync/server/eventhandler.php';
-
-    // Determinar el elemento de respuesta basado en el ID del formulario
     var responseDivId = form.id === 'addEventForm' ? 'responseAdd' : 'responseEdit';
     var responseDiv = document.getElementById(responseDivId);
 
@@ -43,7 +39,7 @@ function handleFormSubmit(form, submitter) {
         if (data.success) {
             responseDiv.classList.add('success-message');
              setTimeout(function() {
-                window.location.reload(true); // Forzar el recargo completo de la página
+                window.location.reload(true);
             }, 2000);
         } else {
             responseDiv.classList.add('error-message');

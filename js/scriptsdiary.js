@@ -1,63 +1,79 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let calendarEl = document.getElementById('calendario');
-
     let modal = document.getElementById('addEventModal');
-    let buttonPlus = document.getElementById('buttonPlus'); // El segundo botón para abrir el modal
-
+    let buttonPlus = document.getElementById('buttonPlus');
     let closeModal = document.querySelector('.close');
-
     let editModal = document.getElementById('editEventModal');
     let closeEditModal = document.querySelector('#editEventModal .close');
-
     let editModalTitle = document.getElementById('editTitle');
     let editModalDescription = document.getElementById('editDescription');
     let editModalLabel = document.getElementById('editLabel');
     let editModalDate = document.getElementById('editDate');
     let editModalTime = document.getElementById('editTime');
-
     let taskId = document.getElementById('taskId');
+    
 
-    // Eventos para abrir el modal
+    let calendar; 
+
     buttonPlus.addEventListener('click', function () {
-        modal.style.display = 'block'; // Abrir modal al clickear el botón plus
+        modal.style.display = 'block';
+        setCurrentDateTime()
     });
 
-    // Eventos para cerrar los modales
     closeModal.addEventListener('click', function () {
-        modal.style.display = 'none'; // Cerrar el modal principal
+        modal.style.display = 'none';
     });
 
     closeEditModal.addEventListener('click', function () {
-        editModal.style.display = 'none'; // Cerrar el modal de editar
+        editModal.style.display = 'none';
     });
 
-    // Cargar datos del usuario desde PHP
+    function adjustCalendarSize() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var contentHeight = 750;
+
+        // iPhone 6/7/8 - 375x667
+        if (width <= 376) {
+            contentHeight = 400;
+        }
+        
+        // iPhone 12 Pro - 390x844
+        else if (width <= 390) {
+            contentHeight = 500;
+        }
+        // Standard Android
+        else if (width <= 512 && height <= 950) {
+            contentHeight = 550; // 
+        }
+        
+        else if (width <= 1925) {
+            contentHeight = 500;
+        }
+        calendar.setOption('contentHeight', contentHeight);
+        calendar.updateSize();
+    }
+
     $.ajax({
         url: 'server/getuserbyid.php',
         type: 'GET',
         dataType: 'json',
         success: function (userData) {
-            var eventos = userData.map(function (evento) {
-                var color = '';
-                switch (evento.Label) {
-                    case 'trabajo': color = 'var(--event-work)'; break;
-                    case 'deporte': color = 'var(--event-sport)'; break;
-                    case 'ocio': color = 'var(--event-leisure)'; break;
-                    case 'otro': color = 'var(--event-other)'; break;
-                    default: color = 'var(--event-other)';
-                }
+            let eventos = userData.map(function (evento) {
                 return {
                     id: evento.ID,
                     title: evento.Title,
                     start: evento.start,
-                    color: color,
+                    color: evento.Label === 'trabajo' ? 'var(--event-work)' :
+                        evento.Label === 'deporte' ? 'var(--event-sport)' :
+                            evento.Label === 'ocio' ? 'var(--event-leisure)' :
+                                'var(--event-other)',
                     description: evento.Description,
                     label: evento.Label
                 };
             });
 
             var calendarEl = document.getElementById('calendario');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 locale: 'es',
                 firstDay: 1,
@@ -68,24 +84,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     center: '',
                     right: 'prev,next,dayGridMonth,timeGridWeek'
                 },
-                handleWindowResize: true, // Habilita el manejo automático del redimensionamiento de la ventana
-                windowResize: function (view) {
-                    // Ajusta el contentHeight basado en el tamaño actual de la ventana
-                    if (window.innerWidth < 768) {
-                        calendar.setOption('contentHeight', 500);
-                    } else if (window.innerWidth >= 768 && window.innerWidth < 1920) {
-                        calendar.setOption('contentHeight', 550);
-                    } else {
-                        calendar.setOption('contentHeight', 650);
-                    }
-                    calendar.updateSize(); // Forzar al calendario a actualizar su tamaño
-                },
+                handleWindowResize: true,
+                windowResize: adjustCalendarSize,
                 events: eventos,
                 dateClick: function (info) {
+                    setCurrentDateTime()
+                    modal.style.display = 'block';
                     document.getElementById('date').value = new Date(info.dateStr).toISOString().split('T')[0];
-                    document.getElementById('time').value = info.view.type === 'timeGridWeek' && !info.allDay ? info.dateStr.split('T')[1].substring(0, 5) : '';
-                    modal.style.display = 'block'; // Abrir modal al clickear en una fecha
-                },
+                    // Obtener la hora actual
+                }
+                ,
                 eventClick: function (info) {
                     let event = info.event;
                     taskId.value = event.id;
@@ -94,18 +102,35 @@ document.addEventListener('DOMContentLoaded', function () {
                     editModalLabel.value = event.extendedProps.label || '';
                     editModalDate.value = new Date(event.start).toISOString().split('T')[0];
                     editModalTime.value = new Date(event.start).toTimeString().split(':')[0] + ':' + new Date(event.start).toTimeString().split(':')[1];
-                    editModal.style.display = 'block'; // Abrir modal de editar al clickear un evento
+                    editModal.style.display = 'block';
                     info.jsEvent.preventDefault();
                 }
             });
 
             calendar.render();
+            adjustCalendarSize(); // Now adjustCalendarSize will be called after the calendar is initialized
         },
         error: function (xhr, status, error) {
             console.error('Error al obtener datos del usuario:', error);
         }
     });
+    function setCurrentDateTime() {
+        let now = new Date();
+        
+        // Formatear la fecha en formato YYYY-MM-DD
+        let formattedDate = now.toISOString().split('T')[0];
+        
+        // Formatear la hora en formato HH:MM
+        let currentHours = now.getHours().toString().padStart(2, '0');
+        let currentMinutes = now.getMinutes().toString().padStart(2, '0');
+        let formattedTime = `${currentHours}:${currentMinutes}`;
+        
+        // Asignar los valores a los campos del modal
+        document.getElementById('date').value = formattedDate;
+        document.getElementById('time').value = formattedTime;
+    }
 });
+
 
 
 
