@@ -36,79 +36,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 ?>
 <!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="../styles/mainstyles.css">
-    <link rel="stylesheet" href="../styles/modalstyles.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-    <title>Iniciar Sesión</title>
-
-</head>
-<header class="nav">
-    <div class=logo></div>
-    <div class="rightnav">
-        <?php
-
-
-    if (isset($_SESSION['user_name'])) {
-        echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
-        echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
-    } else {
-        echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
-        echo "<a href='register.php'><button>Registrarse</button></a>";
-    }
-    ?>
-        <button id="dark-mode-toggle" class="buttonnight"><i class="bi bi-moon-fill"></i></button>
-    </div>
-</header>
-
-<body>
-    <div class="modalpoliticaprivacidad" id="politica-privacidad-modal">
-        <div class="modal-content" id="privacyPolicy">
-            <h1>Política de Privacidad</h1>
-            <h2>Información que recopilamos</h2>
-            <p>En TaskSync, recopilamos información personal y no personal que nos proporcionas directamente cuando
-                utilizas nuestros servicios. Esto puede incluir datos que nos ofreces al crear una cuenta, compartir
-                información de contacto, o usar nuestras funcionalidades.</p>
-
-            <h2>Uso de la información</h2>
-            <p>Utilizamos la información recopilada para proporcionar, mantener y mejorar nuestros servicios, así como
-                para desarrollar nuevos servicios y ofrecer protección a TaskSync y nuestros usuarios.</p>
-
-            <h2>Compartiendo tu información</h2>
-            <p>No vendemos tu información personal a terceros. Podemos compartir información con nuestros socios de
-                confianza para permitir la creación de funcionalidades mejoradas, análisis estadísticos y otros
-                servicios similares.</p>
-
-            <h2>Tus derechos y opciones</h2>
-            <p>Tienes derecho a acceder, corregir o eliminar tus datos personales que tenemos. Además, puedes oponerte
-                al procesamiento de tus datos personales, solicitar la limitación del procesamiento y solicitar la
-                portabilidad de tus datos.</p>
-
-            <h2>Cambios a esta política</h2>
-            <p>Podemos actualizar nuestra política de privacidad ocasionalmente. Te notificaremos sobre cualquier cambio
-                publicando la nueva política de privacidad en esta página.</p>
-
-            <h2>Contacto</h2>
-            <p>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos usando la información
-                proporcionada en nuestro sitio web.</p>
-        </div>
-    </div>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../styles/mainstyles.css">
+        <link rel="stylesheet" href="../styles/modalstyles.css">
+        <title>Iniciar Sesión</title>
+    </head>
     
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 TaskSync - Todos los derechos reservados</p>
-            <ul class="footer-links">
-                <li><a href="privacypolicy.php">Política de Privacidad</a></li>
-                <li><a href="faq.php">FAQ</a></li>
-            </ul>
-        </div>
-    </footer>
+    <body>
+        <header class="nav">
+            <a href="../index.php">
+                <div class=logo></div>
+            </a>
+            <div class="rightnav">
+            <?php
+            if (isset($_SESSION['user_name'])) {
+                echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
+                echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
+            } else {
+                echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
+                echo "<a href='register.php'><button>Registrarse</button></a>";
+            }
+            ?>
+                <button id="dark-mode-toggle" class="buttonnight"><i class="bi bi-moon-fill"></i></button>
+            </div>
+        </header>
+        <main>
 
-    <script src="../js/scriptsnightmode.js"></script>
-</body>
+            <div class="modalpoliticaprivacidad" id="politica-privacidad-modal">
+                <div class="modal-content" id="privacyPolicy">
+                    <h2>Política de Privacidad</h2>
+                    <h3>Información que recopilamos</h3>
+                    <p>En TaskSync, recopilamos información personal y no personal que nos proporcionas directamente cuando
+                        utilizas nuestros servicios. Esto puede incluir datos que nos ofreces al crear una cuenta, compartir
+                        información de contacto, o usar nuestras funcionalidades.</p>
 
+                    <h3>Uso de la información</h3>
+                    <p>Utilizamos la información recopilada para proporcionar, mantener y mejorar nuestros servicios, así como
+                        para desarrollar nuevos servicios y ofrecer protección a TaskSync y nuestros usuarios.</p>
+
+                    <h3>Compartiendo tu información</h3>
+                    <p>No vendemos tu información personal a terceros. Podemos compartir información con nuestros socios de
+                        confianza para permitir la creación de funcionalidades mejoradas, análisis estadísticos y otros
+                        servicios similares.</p>
+
+                    <h3>Tus derechos y opciones</h3>
+                    <p>Tienes derecho a acceder, corregir o eliminar tus datos personales. Además, puedes oponerte 
+                        al procesamiento de tus datos personales, solicitar la limitación del procesamiento y solicitar la
+                        portabilidad de tus datos.</p>
+
+                    <h3>Cambios a esta política</h3>
+                    <p>Podemos actualizar nuestra política de privacidad ocasionalmente. Te notificaremos sobre cualquier
+                        cambio publicando la nueva política de privacidad en esta página.</p>
+
+                    <h3>Contacto</h3>
+                    <p>Si tienes preguntas sobre esta política de privacidad, puedes contactarnos usando la información
+                        proporcionada en nuestro sitio web.</p>
+                    <p>Pulsa <a href="contact.php">AQUÍ</a> para abrir fomulario de contacto
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 TaskSync - Todos los derechos reservados</p>
+                <ul class="footer-links">
+                    <li><a href="privacypolicy.php">Política de Privacidad</a></li>
+                    <li><a href="contact.php">Contacto</a></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="../js/scriptsnightmode.js"></script>
+    </body>
 </html>

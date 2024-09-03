@@ -34,71 +34,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   ?>
 <!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="../styles/mainstyles.css">
-    <link rel="stylesheet" href="../styles/modalstyles.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Registrarse</title>
-
-</head>
-
-<header class="nav">
-    <div class=logo></div>
-    <div class="rightnav">
-        <?php
-
-
-    if (isset($_SESSION['user_name'])) {
-        echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
-        echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
-    } else {
-        echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
-        echo "<a href='register.php'><button>Registrarse</button></a>";
-    }
-    ?>
-
-        <button id="dark-mode-toggle" class="buttonnight"><i class="bi bi-moon-fill"></i></button>
-    </div>
-</header>
-
-<body>
-    <div class="modal" id="loginregister">
-        <div class="modal-content">
-            <h2>Registrarse</h2>
-            <form method="post" action="register.php">
-                <div class="form-group">
-                    <label for="email">E-mail:</label><br>
-                    <input type="email" id="email" name="email" required>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../styles/mainstyles.css">
+        <link rel="stylesheet" href="../styles/modalstyles.css">
+        <title>Registrarse</title>
+    </head>
+    <body>
+        <header class="nav">
+            <a href="../index.php">
+                <div class=logo></div>
+            </a>
+            <div class="rightnav">
+            <?php
+            if (isset($_SESSION['user_name'])) {
+                echo "<a href='../index.php'><button class='buttonprimary'>" . htmlspecialchars($_SESSION['user_name']) . "</button></a>";
+                echo "<a href='logout.php'><button class='buttonexit'>Cerrar Sesion</button></a>";
+            } else {
+                echo "<a href='login.php'><button>Iniciar Sesión</button></a>";
+                echo "<a href='register.php'><button>Registrarse</button></a>";
+            }
+            ?>
+    
+                <button id="dark-mode-toggle" class="buttonnight"><i class="bi bi-moon-fill"></i></button>
+            </div>
+        </header>
+        <main>
+            <div class="modal" id="loginregister">
+                <div class="modal-content">
+                    <h2>Registrarse</h2>
+                    <form method="post" action="register.php">
+                        <div class="form-group">
+                            <label for="email">E-mail:</label><br>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nombre:</label><br>
+                            <input type="name" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña:</label><br>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" value="Registrarse">Registrarse</button>
+                        </div>
+                        <h3 class="message"><?php echo $message; ?></h3>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="name">Nombre:</label><br>
-                    <input type="name" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label><br>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" value="Registrarse">Registrarse</button>
-                </div>
-                <h3 class="message"><?php echo $message; ?></h3>
-            </form>
-        </div>
-    </div>
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2024 TaskSync - Todos los derechos reservados</p>
-            <ul class="footer-links">
-                <li><a href="privacypolicy.php">Política de Privacidad</a></li>
-                <li><a href="faq.php">FAQ</a></li>
-            </ul>
-        </div>
-    </footer>
-
-    <script src="../js/scriptsnightmode.js"></script>
-</body>
-
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 TaskSync - Todos los derechos reservados</p>
+                <ul class="footer-links">
+                    <li><a href="privacypolicy.php">Política de Privacidad</a></li>
+                    <li><a href="contact.php">Contacto</a></li>
+                </ul>
+            </div>
+        </footer>
+        <script src="../js/scriptsnightmode.js"></script>
+    </body>
 </html>
