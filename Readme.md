@@ -11,7 +11,7 @@ Bienvenido a **TaskSync**, una aplicación diseñada para ayudarte a organizar t
 
 ### 2. Registro y Modificación de Eventos
 - Crea, edita y organiza eventos en diferentes categorías como ocio, deporte, trabajo y otros.
-- ![Registro de Eventos](img/registro_eventos.png)
+- ![Registro de Eventos](img/registroeventos.png)
 
 ### 3. Vista Semanal
 -  Visualiza tus eventos organizados por semana para una planificación más precisa.
