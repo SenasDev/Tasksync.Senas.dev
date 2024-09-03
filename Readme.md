@@ -42,3 +42,15 @@ Bienvenido a **TaskSync**, una aplicación diseñada para ayudarte a organizar t
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="60" height="60"/>
   <img src="https://mariadb.com/wp-content/uploads/2019/11/mariadb-logo-vertical_blue.svg" alt="MariaDB" width="60" height="60"/>
 </p>
+
+## Contribuciones
+
+- ¡Las contribuciones son bienvenidas! Si tienes alguna idea o mejora que no se quede ahí.
+
+## En desarrollo
+- Proyectos... loading...
+
+## Contacto:
+* Correo: jorgesantiagosenas@gmail.com
+* GitHub: https://github.com/Senasjorge
+* Linkedin: https://www.linkedin.com/in/jorge-señas
