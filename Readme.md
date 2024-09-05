@@ -52,5 +52,5 @@ Bienvenido a **TaskSync**, una aplicación diseñada para ayudarte a organizar t
 
 ## Contacto:
 * Correo: jorgesantiagosenas@gmail.com
-* GitHub: https://github.com/Senasjorge
+* GitHub: https://github.com/SenasDev
 * Linkedin: https://www.linkedin.com/in/senas-dev
